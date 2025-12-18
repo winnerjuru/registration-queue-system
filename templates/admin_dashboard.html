@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container wide">
+    <h2>Admin Dashboard</h2>
+
+    {% if payments %}
+    <div class="table-wrapper">
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Student</th>
+                    <th>Amount</th>
+                    <th>Proof</th>
+                    <th>Status</th>
+                    <th>Queue</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            {% for payment in payments %}
+                <tr>
+                    <td>{{ payment.name }}</td>
+                    <td>{{ payment.amount }}</td>
+                    <td class="proof">{{ payment.proof }}</td>
+                    <td>
+                        <span class="status {{ payment.status }}">
+                            {{ payment.status }}
+                        </span>
+                    </td>
+                    <td>{{ payment.queue_number }}</td>
+                    <td class="actions">
+                        {% if payment.status == 'pending' %}
+                            <a class="btn approve" href="/admin/approve/{{ payment.payment_id }}">Approve</a>
+                            <a class="btn reject" href="/admin/reject/{{ payment.payment_id }}">Reject</a>
+                        {% else %}
+                            <span class="done">Done</span>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+        <p class="empty">No payments submitted yet.</p>
+    {% endif %}
+
+    <a href="/logout" class="btn danger">Logout</a>
+</div>
+
+</body>
+</html>

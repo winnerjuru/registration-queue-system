@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Status</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h2>Your Registration Status</h2>
+
+    {% if result %}
+        <p><strong>Status:</strong> {{ result.status }}</p>
+        <p><strong>Queue Number:</strong> {{ result.queue_number }}</p>
+    {% else %}
+        <p>No payment submitted yet.</p>
+    {% endif %}
+
+    <a href="/student/dashboard" class="btn">⬅ Back to Dashboard</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Payment</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Submit Registration Payment</h2>
+
+        <form method="POST">
+
+            <input
+                type="number"
+                name="amount"
+                placeholder="Amount Paid"
+                required
+            >
+
+            <input
+                type="text"
+                name="proof"
+                placeholder="Proof of Payment (e.g. Receipt No, Transaction ID)"
+                required
+            >
+
+            <button type="submit">Submit Payment</button>
+
+        </form>
+
+        <p style="text-align:center; margin-top:15px;">
+            <a href="/student/dashboard">⬅ Back to Dashboard</a>
+        </p>
+    </div>
+
+</body>
+</html>
