@@ -3,19 +3,19 @@ body {
     margin: 0;
     padding: 0;
 
-    /* Background image */
-    background-image:
+    background:
         linear-gradient(
-            rgba(0, 0, 0, 0.55),
-            rgba(0, 0, 0, 0.55)
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.6)
         ),
-        url("/static/images/background.jpg");
+        url("/static/images/background.png");
 
-    background-size: 110%;        /* Zoomed OUT */
+    background-size: 120%;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
 
 
 .container {
@@ -25,6 +25,8 @@ body {
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0 12px 35px rgba(0,0,0,0.35);
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 
